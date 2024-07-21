@@ -16,7 +16,7 @@ pipeline {
                 echo 'Hello Test'
             }
         }
-        
+
         stage('Deploy') {
             steps {
                 echo 'Hello Deploy'
@@ -37,4 +37,5 @@ pipeline {
         cleanup {
             echo "Don't care success or not"
         }
+    }
     }
