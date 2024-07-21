@@ -4,15 +4,14 @@ pipeline {
             label "linux && java11"
         }
     }
-    
     stages {
+
         stage('Build') {
             steps {
                 echo 'Hello build'
             }
         }
     
-    stages {
         stage('Test') {
             steps {
                 echo 'Hello Test'
@@ -20,7 +19,6 @@ pipeline {
         }
     }
 
-    stages {
         stage('Deploy') {
             steps {
                 echo 'Hello Deploy'
@@ -42,5 +40,3 @@ pipeline {
             echo "Don't care success or not"
         }
     }
-}
-}
