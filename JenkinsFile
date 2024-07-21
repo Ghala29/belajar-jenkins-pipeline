@@ -8,24 +8,24 @@ pipeline {
 
         stage('Build') {
             steps {
-                echo 'Hello build 1'
-                echo 'Hello build 2'
-                echo 'Hello build 3'
+                echo 'Start Build'
+                sleep(5) 
+                echo 'Finish Build'
             }
         }
         stage('Test') {
             steps {
-                echo 'Hello Test 1'
-                echo 'Hello Test 2'
-                echo 'Hello Test 3'
+                echo 'Start Test'
+                sleep(5) 
+                echo 'Finish Test'
             }
         }
 
         stage('Deploy') {
             steps {
-                echo 'Hello Deploy 1'
-                echo 'Hello Deploy 2'
-                echo 'Hello Deploy 3'
+                echo 'Start Deploy'
+                sleep(5) 
+                echo 'Finish Deploy'
             }
         }
     }
