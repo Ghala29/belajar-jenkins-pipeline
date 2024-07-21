@@ -5,24 +5,26 @@ pipeline {
         }
     }
     stages {
+
         stage('Build') {
             steps {
                 echo 'Start Build'
-                sleep(5)
+                sleep(5) 
                 echo 'Finish Build'
             }
         }
         stage('Test') {
             steps {
                 echo 'Start Test'
-                sleep(5)
+                sleep(5) 
                 echo 'Finish Test'
             }
         }
+
         stage('Deploy') {
             steps {
                 echo 'Start Deploy'
-                sleep(5)
+                sleep(5) 
                 echo 'Finish Deploy'
             }
         }
@@ -31,59 +33,15 @@ pipeline {
     post {
         always {
             echo "I will always say Hello again!"
-            // Send email on completion
-            emailext(
-                to: 'ghalasudana24@gmail.com',
-                subject: "Pipeline ${env.JOB_NAME} - ${env.BUILD_STATUS}",
-                body: """\
-                Pipeline ${env.JOB_NAME} - ${env.BUILD_STATUS}
-                Build Number: ${env.BUILD_NUMBER}
-                Build URL: ${env.BUILD_URL}
-                """,
-                attachLog: true
-            )
         }
         success {
             echo "Yay, success"
-            // Send success email
-            emailext(
-                to: 'ghalasudana24@gmail.com',
-                subject: "Pipeline ${env.JOB_NAME} - Success",
-                body: """\
-                The pipeline ${env.JOB_NAME} has successfully completed.
-                Build Number: ${env.BUILD_NUMBER}
-                Build URL: ${env.BUILD_URL}
-                """,
-                attachLog: true
-            )
         }
         failure {
             echo "Oh no, failure"
-            // Send failure email
-            emailext(
-                to: 'ghalasudana24@gmail.com',
-                subject: "Pipeline ${env.JOB_NAME} - Failure",
-                body: """\
-                The pipeline ${env.JOB_NAME} has failed.
-                Build Number: ${env.BUILD_NUMBER}
-                Build URL: ${env.BUILD_URL}
-                """,
-                attachLog: true
-            )
         }
         cleanup {
             echo "Don't care success or not"
-            // Optional cleanup email
-            emailext(
-                to: 'recipient@example.com',
-                subject: "Pipeline ${env.JOB_NAME} - Completed",
-                body: """\
-                The pipeline ${env.JOB_NAME} has completed.
-                Build Number: ${env.BUILD_NUMBER}
-                Build URL: ${env.BUILD_URL}
-                """,
-                attachLog: true
-            )
         }
     }
-}
+    }
